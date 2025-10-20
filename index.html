@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>San Martin | Inicio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ====== BODY ====== */
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: #eaeaea;
+    overflow-x: hidden;
+    background: url('https://i.pinimg.com/1200x/2c/25/56/2c25563a4b9d95c7d3c31f65365bbab3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: background-image 1.8s ease-in-out;
+    position: relative;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 20, 0, 0.65);
+    z-index: -1;
+  }
+
+  /* ====== NAVBAR ====== */
+  .navbar {
+    background: rgba(10,10,10,0.9);
+    backdrop-filter: blur(6px);
+    border-bottom: 3px solid #ffd700;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.8);
+    padding: 12px 0;
+    transition: background 0.4s ease;
+  }
+  .navbar.scrolled {
+    background: rgba(20,20,20,0.98);
+  }
+  .navbar-brand {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #ffd700 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .navbar-brand img {
+    height: 52px;
+    filter: drop-shadow(0 0 6px rgba(255,215,0,0.5));
+  }
+  .nav-link {
+    position: relative;
+    color: #d4d465 !important;
+    font-weight: 600;
+    margin: 0 8px;
+    padding: 8px 16px;
+    transition: color 0.3s ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 0%; height: 2px;
+    background: #ffd700;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  .nav-link:hover::after, .nav-link.active::after {
+    width: 70%;
+  }
+  .nav-link:hover, .nav-link.active {
+    color: #fff !important;
+  }
+  .btn-contacto {
+    background-color: #2e7d32;
+    border: 2px solid #ffd700;
+    color: #ffd700 !important;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 8px 20px;
+    margin-left: 12px;
+    transition: all 0.4s ease;
+  }
+  .btn-contacto:hover {
+    background-color: #388e3c;
+    color: #fff !important;
+    box-shadow: 0 0 15px rgba(255,215,0,0.7);
+    transform: scale(1.08);
+  }
+
+  /* ====== HEADER ====== */
+  header {
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  .header-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(0, 30, 0, 0.82);
+    padding: 55px;
+    border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.85);
+    border: 2px solid #ffd700;
+    animation: fadeInUp 1.8s ease;
+  }
+
+  /* ====== LEFT CONTENT ====== */
+  .header-left {
+    flex: 1 1 46%;
+    min-width: 280px;
+    animation: fadeInLeft 1.8s ease;
+  }
+  .header-left h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    margin-bottom: 22px;
+    color: #ffd700;
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
+    animation: slideIn 2s ease;
+  }
+  .header-left p {
+    font-size: 1.3rem;
+    margin-bottom: 28px;
+    color: #c8e6c9;
+    line-height: 1.8;
+  }
+  .btn-services {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    background-color: #2e7d32;
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    border-radius: 40px;
+    padding: 14px 36px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    animation: pulse 2.5s infinite;
+  }
+  .btn-services:hover {
+    background-color: #388e3c;
+    transform: scale(1.12);
+    box-shadow: 0 12px 30px rgba(255,215,0,0.8);
+  }
+  .tagline {
+    margin-top: 22px;
+    font-size: 1.15rem;
+    color: #e0e0a0;
+    font-style: italic;
+    animation: fadeIn 3s ease;
+  }
+
+  /* ====== RIGHT IMAGE ====== */
+  .header-right {
+    flex: 1 1 46%;
+    min-width: 280px;
+    text-align: center;
+    animation: fadeInRight 1.8s ease;
+  }
+  .header-right img {
+    max-width: 90%;
+    border-radius: 22px;
+    border: 3px solid #ffd700;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+  }
+  .header-right img:hover {
+    transform: scale(1.1) rotate(1.5deg);
+    box-shadow: 0 15px 35px rgba(255,215,0,0.7);
+  }
+
+  /* ====== FOOTER ====== */
+  footer {
+    background-color: rgba(0,0,0,0.95);
+    color: #ffd700;
+    text-align: center;
+    padding: 30px;
+    font-size: 1rem;
+    border-top: 2px solid #2e7d32;
+    animation: fadeIn 2.2s ease;
+  }
+
+  /* ====== ANIMACIONES ====== */
+  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+  @keyframes fadeInUp { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+  @keyframes fadeInLeft { from {opacity:0; transform:translateX(-60px);} to {opacity:1; transform:translateX(0);} }
+  @keyframes fadeInRight { from {opacity:0; transform:translateX(60px);} to {opacity:1; transform:translateX(0);} }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,215,0,0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255,215,0,0.9); }
+  }
+  @keyframes slideIn {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 768px) {
+    .header-content { padding: 35px; }
+    .header-left h1 { font-size: 2.4rem; }
+    .header-left p { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Logo San Martin">
+      San Martin
+    </a>
+    <button class="navbar-toggler bg-light rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link btn-contacto" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <div class="header-left">
+      <h1>Más que una clínica,<br> una familia</h1>
+      <p>En <strong>San Martin</strong>, cada latido, cada mirada y cada historia de tus mascotas nos inspira a dar lo mejor. Amor, ciencia y compromiso se unen para garantizar su bienestar.</p>
+      <a href="servicios.html" class="btn-services">Explora nuestros servicios</a>
+      <p class="tagline">Cuidado integral · Emergencias 24/7 · Experiencia con corazón</p>
+    </div>
+    <div class="header-right">
+      <img src="https://i.pinimg.com/736x/33/8a/aa/338aaa845d2c083ec7be32bb076afbf8.jpg" alt="Nuestra clínica">
+    </div>
+  </div>
+</header>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Clínica Veterinaria San Martin. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Fondo dinámico -->
+<script>
+  const fondos = [
+    "https://i.pinimg.com/1200x/2c/25/56/2c25563a4b9d95c7d3c31f65365bbab3.jpg",
+    "https://i.pinimg.com/1200x/0f/09/ed/0f09ed3822b8a67144464893600042e4.jpg",
+    "https://i.pinimg.com/736x/43/36/98/4336982bcf299e41362a4cc28be88354.jpg"
+  ];
+  let index = 0;
+  setInterval(() => {
+    document.body.style.backgroundImage = `url(${fondos[index]})`;
+    index = (index + 1) % fondos.length;
+  }, 3000);
+
+  // Navbar efecto scroll
+  window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".navbar");
+    if(window.scrollY > 60){
+      nav.classList.add("scrolled");
+    } else {
+      nav.classList.remove("scrolled");
+    }
+  });
+</script>
+</body>
+</html>

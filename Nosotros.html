@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nosotros | San Martin</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===== GLOBAL ===== */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  color: #eaeaea;
+  overflow-x: hidden;
+  background: url('https://i.pinimg.com/1200x/5d/b2/16/5db216820caead8c8d667fabd1438a1d.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 20, 0, 0.7);
+  z-index: -1;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: rgba(10,10,10,0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 3px solid #ffd700;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.8);
+  padding: 12px 0;
+  transition: background 0.4s ease;
+}
+.navbar.scrolled { background: rgba(20,20,20,0.98); }
+.navbar-brand {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #ffd700 !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+}
+.navbar-brand img { height: 52px; }
+.nav-link {
+  position: relative;
+  color: #d4d465 !important;
+  font-weight: 600;
+  margin: 0 8px;
+  padding: 8px 16px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 0%; height: 2px;
+  background: #ffd700;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-link:hover::after, .nav-link.active::after { width: 70%; }
+.nav-link:hover, .nav-link.active { color: #fff !important; }
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  padding: 160px 20px 100px;
+  animation: fadeInDown 1.8s ease;
+}
+header h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #ffd700;
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
+}
+header p {
+  font-size: 1.3rem;
+  margin-top: 18px;
+  color: #c8e6c9;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 70px 20px;
+  background: rgba(0, 30, 0, 0.82);
+  border-radius: 25px;
+  margin: 40px auto;
+  max-width: 1300px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.8);
+  border: 2px solid #ffd700;
+  animation: fadeInUp 1.5s ease;
+}
+.section h2 {
+  color: #ffd700;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+}
+
+/* ===== QUIÉNES SOMOS ===== */
+.who-we-are {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+.who-we-are .image-col {
+  flex: 1 1 500px;
+}
+.who-we-are .text-col {
+  flex: 1 1 500px;
+  background: rgba(0,0,0,0.75);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+}
+.who-we-are h3 {
+  color: #ffd700;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.who-we-are p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ===== CAROUSEL ===== */
+.carousel-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.carousel {
+  flex: 1 1 650px;
+  max-width: 700px;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+}
+.carousel-caption {
+  background: rgba(0,30,0,0.75);
+  border-radius: 12px;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: left;
+}
+.carousel-text {
+  flex: 1 1 350px;
+  background: rgba(0,30,0,0.85);
+  padding: 25px;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+}
+
+/* ===== CARD UNIFORME ===== */
+.card-uniform {
+  background: rgba(0,0,0,0.92);
+  border: 2px solid #ffd700;
+  border-radius: 22px;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+  transition: all 0.4s ease;
+}
+.card-uniform img {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.card-uniform:hover img { transform: scale(1.1); }
+.card-uniform:hover { transform: translateY(-8px); box-shadow: 0 14px 28px rgba(0,0,0,0.9); }
+.card-uniform .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-uniform .card-body h5 { color: #ffd700; font-weight: bold; margin-bottom: 10px; }
+.card-uniform .card-body p { flex: 1; font-size: 1rem; line-height: 1.5; }
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: rgba(0,0,0,0.95);
+  color: #ffd700;
+  text-align: center;
+  padding: 30px;
+  font-size: 1rem;
+  border-top: 2px solid #2e7d32;
+  animation: fadeIn 2.2s ease;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes fadeInUp { from {opacity:0; transform:translateY(40px);} to {opacity:1; transform:translateY(0);} }
+@keyframes fadeInDown { from {opacity:0; transform:translateY(-40px);} to {opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Logo San Martin">
+      San Martin
+    </a>
+    <button class="navbar-toggler bg-light rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+        <li class="nav-item"><a class="nav-link active" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <h1>Conoce a San Martin</h1>
+  <p>Amor, ciencia y compromiso en cada cuidado animal</p>
+</header>
+
+<!-- QUIÉNES SOMOS -->
+<section class="section container">
+  <div class="who-we-are">
+    <div class="image-col">
+      <img src="https://i.pinimg.com/1200x/67/d9/fc/67d9fcb89af5f1cd73f7fc0c0b55d28f.jpg" class="img-fluid rounded" alt="Equipo San Martin">
+    </div>
+    <div class="text-col">
+      <h3>Somos un equipo comprometido</h3>
+      <p>En San Martin, combinamos experiencia y pasión para ofrecer cuidado integral a tus mascotas. Veterinarios, técnicos y amantes de los animales trabajamos juntos, asegurando atención de calidad y un trato humano en cada visita.</p>
+      <p>Nos enfocamos en la salud física y emocional de tus mascotas, creando un ambiente seguro y cálido en cada consulta y tratamiento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CARRUSEL Y TEXTO LATERAL -->
+<section class="section container">
+  <h2>Nuestros Recuerdos y Mascotas</h2>
+  <div class="carousel-wrapper">
+    <div id="carouselMascotas" class="carousel slide carousel-dark" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://i.pinimg.com/1200x/e8/73/60/e873601f787b1f5bcee3295096f7228a.jpg" class="d-block w-100" alt="Mascota 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Luna</h5>
+            <p>Adoptada en 2017, ejemplo de superación y cariño.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/ea/65/a7/ea65a7faa0791cdef5160df2c0765c26.jpg" class="d-block w-100" alt="Mascota 2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Max</h5>
+            <p>Rescatado en 2019, símbolo de esperanza y cuidado.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://i.pinimg.com/736x/4d/df/3c/4ddf3c376c9823d2629c2b587e4fdf2b.jpg" class="d-block w-100" alt="Mascota 3">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Bella</h5>
+            <p>Veterana de la clínica, querida por todo el equipo.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselMascotas" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselMascotas" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+    <div class="carousel-text">
+      <h5>Nuestros recuerdos</h5>
+      <p>Cada mascota que pasa por San Martin deja una huella imborrable. Sus historias y nuestra dedicación se reflejan en cada tratamiento, cada juego, cada momento compartido.</p>
+      <p>Amamos a cada una de nuestras mascotas y las cuidamos como parte de nuestra familia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FILOSOFÍA: MISIÓN, VISIÓN, VALORES -->
+<section class="section container">
+  <h2>Nuestra Filosofía</h2>
+  <div class="row g-4">
+    <div class="col-md-4 d-flex">
+      <div class="card-uniform">
+        <img src="https://i.pinimg.com/736x/44/fb/f5/44fbf5bc7c4b70bfacfaf0707e57e0d2.jpg" class="card-img-top" alt="Misión">
+        <div class="card-body">
+          <h5>Misión</h5>
+          <p>Brindar atención médica y emocional de excelencia para mejorar la calidad de vida de cada mascota y su familia.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex">
+      <div class="card-uniform">
+        <img src="https://i.pinimg.com/736x/df/36/a1/df36a11981e4c15f59e1edb668b169e8.jpg" class="card-img-top" alt="Visión">
+        <div class="card-body">
+          <h5>Visión</h5>
+          <p>Ser la clínica veterinaria referente en atención ética, profesional y cálida en toda la región.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex">
+      <div class="card-uniform">
+        <img src="https://i.pinimg.com/736x/48/d6/96/48d696fe9d81b0e9ed07352d057e4d41.jpg" class="card-img-top" alt="Valores">
+        <div class="card-body">
+          <h5>Valores</h5>
+          <p>Compasión, integridad, respeto, innovación, trabajo en equipo y amor por los animales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="section container">
+  <h2>Conoce a Nuestro Equipo</h2>
+  <div class="row g-4">
+    <div class="col-md-3 d-flex">
+      <div class="card-uniform">
+        <img src="https://i.pinimg.com/736x/9b/41/50/9b4150f33166ff8c02a931a43d217abb.jpg" class="card-img-top" alt="Dr. Juan Pérez">
+        <div class="card-body">
+          <h5>Dr. Juan Pérez</h5>
+          <p>Director Veterinario. Especialista en medicina felina y canina.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex">
+      <div class="card-uniform">
+        <img src="https://i.pinimg.com/736x/84/1e/b6/841eb641315eaa73319b9595837884ff.jpg" class="card-img-top" alt="Dra. María López">
+        <div class="card-body">
+          <h5>Dra. María López</h5>
+          <p>Veterinaria especialista en nutrición y comportamiento animal.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex">
+      <div class="card-uniform">
+        <img src="https://i.pinimg.com/736x/76/6f/80/766f80c7d40ef1c4c180124e5121599c.jpg" class="card-img-top" alt="Técnico Carlos">
+        <div class="card-body">
+          <h5>Carlos Gómez</h5>
+          <p>Técnico Veterinario. Apasionado por la cirugía y rehabilitación animal.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 d-flex">
+      <div class="card-uniform">
+        <img src="https://i.pinimg.com/736x/ea/54/72/ea547252e46ebd775eb8f478424f022f.jpg" class="card-img-top" alt="Estilista Ana">
+        <div class="card-body">
+          <h5>Ana Torres</h5>
+          <p>Estilista y cuidadora de mascotas. Especialista en grooming y bienestar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DUDAS FRECUENTES -->
+<section class="section container">
+  <h2>Dudas Frecuentes</h2>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">
+          ¿Cuáles son los horarios de atención?
+        </button>
+      </h2>
+      <div id="faqOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Atendemos de lunes a sábado de 8:00 a 19:00 horas, con servicio de urgencias disponible 24/7.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">
+          ¿Aceptan mascotas de todas las edades?
+        </button>
+      </h2>
+      <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Sí, atendemos desde cachorros y gatitos hasta animales senior, ajustando los tratamientos según su edad y necesidades.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree">
+          ¿Qué servicios ofrecen?
+        </button>
+      </h2>
+      <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Brindamos consultas generales, vacunación, cirugías, nutrición, grooming, radiología, laboratorio y emergencias 24/7.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Clínica Veterinaria San Martin. Todos los derechos reservados.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if(window.scrollY > 50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+</script>
+
+</body>
+</html>
+
+
