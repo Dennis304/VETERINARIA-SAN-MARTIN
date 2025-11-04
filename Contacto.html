@@ -11,6 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 <!-- Animate.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 
 <style>
 body {
@@ -39,8 +41,6 @@ body::after {
 .nav-link::after { content:""; position:absolute; bottom:0; left:50%; width:0%; height:2px; background:#ffd700; transition: all 0.3s ease; transform:translateX(-50%);}
 .nav-link:hover::after, .nav-link.active::after { width:70%; }
 .nav-link:hover, .nav-link.active { color:#fff !important; }
-.btn-contacto { background-color:#2e7d32; border:2px solid #ffd700; color:#ffd700 !important; font-weight:700; border-radius:30px; padding:8px 20px; margin-left:12px; transition: all 0.4s ease; }
-.btn-contacto:hover { background-color:#388e3c; color:#fff !important; box-shadow:0 0 15px rgba(255,215,0,0.7); transform:scale(1.08); }
 
 /* ===== CONTACTO ===== */
 .contact-section { display:grid; grid-template-columns: repeat(auto-fit,minmax(350px,1fr)); gap:40px; max-width:1300px; margin:90px auto; padding:0 20px; align-items:start; }
@@ -53,18 +53,36 @@ body::after {
 .btn-send { background-color:#2E7D32; border:2px solid #FFD700; color:#FFD700; font-weight:600; border-radius:12px; padding:10px 25px; transition: all 0.4s; }
 .btn-send:hover { background-color:#388e3c; color:#fff; transform:scale(1.08); box-shadow:0 6px 25px rgba(255,215,0,0.9); }
 
-/* Mapa cuadrado */
+/* Mapa + redes */
 .map-wrapper { display:flex; flex-direction:column; align-items:center; }
 .map-container { width:100%; aspect-ratio:1/1; border-radius:20px; overflow:hidden; border:2px solid #FFD700; box-shadow:0 12px 40px rgba(0,0,0,0.85); transition: transform 0.4s, box-shadow 0.4s; animation: fadeInRight 1.5s ease; position:relative;}
 .map-container:hover { transform:scale(1.03); box-shadow:0 18px 45px rgba(0,0,0,0.9);}
 .map-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(46,125,50,0.25); pointer-events:none; transition:background 0.4s;}
 .map-container:hover .map-overlay { background: rgba(56,142,60,0.1); animation: glow 1.2s infinite alternate; }
+
 @keyframes glow { 0%{ box-shadow:0 0 20px #FFD700; } 100%{ box-shadow:0 0 35px #FFD700; } }
 
 .info-box { background: rgba(0,0,0,0.75); border:2px solid #FFD700; border-radius:15px; padding:20px; margin-top:15px; color:#FFD700; font-weight:600; box-shadow:0 4px 20px rgba(0,0,0,0.7); text-align:center; animation: fadeInUp 1.5s ease; }
 .info-box p { margin:5px 0; }
 
-/* FOOTER */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-bottom: 15px;
+  animation: fadeIn 1.5s ease;
+}
+.social-links a {
+  font-size: 3rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.social-links a:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
+.bi-facebook { color: #1877f2; }
+.bi-instagram { color: #e1306c; }
+
 footer {
   background-color: rgba(0,0,0,0.95);
   color: #ffd700;
@@ -100,7 +118,7 @@ San Martin
 <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
 <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
 <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-<li class="nav-item"><a class="nav-link btn-contacto active" href="contacto.html">Contacto</a></li>
+<li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
 </ul>
 </div>
 </div>
@@ -110,18 +128,18 @@ San Martin
 <section class="contact-section container">
   <!-- FORMULARIO -->
   <div class="contact-card animate__animated animate__fadeInLeft">
-    <form>
+    <form id="contactForm" action="mailto:dennishuarachipcxd@gmail.com" method="POST" enctype="text/plain">
       <div class="mb-3">
         <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
+        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre" required>
       </div>
       <div class="mb-3">
         <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" class="form-control" placeholder="correo@ejemplo.com" required>
+        <input type="email" id="correo" name="correo" class="form-control" placeholder="correo@ejemplo.com" required>
       </div>
       <div class="mb-3">
         <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" class="form-control" rows="6" placeholder="Escribe tu mensaje..." required></textarea>
+        <textarea id="mensaje" name="mensaje" class="form-control" rows="6" placeholder="Escribe tu mensaje..." required></textarea>
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-send">Enviar mensaje</button>
@@ -129,15 +147,18 @@ San Martin
     </form>
   </div>
 
-  <!-- MAPA Y INFO -->
+  <!-- MAPA, REDES E INFO -->
   <div class="map-wrapper">
+    <div class="social-links">
+      <a href="https://www.facebook.com/me/" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+    </div>
+
     <div class="map-container animate__animated animate__fadeInRight">
       <div class="map-overlay"></div>
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.6712792787985!2d-63.179206!3d-17.783518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f4b7e8e5d48d73%3A0x60c6e3de2a72f0ab!2sAv.%20Calle%20Ejemplo%2C%20Santa%20Cruz%2C%20Bolivia!5e0!3m2!1ses-419!2sus!4v1695400000000!5m2!1ses-419!2sus" 
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15180.863659970151!2d-67.12900824458004!3d-17.968688899999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e2b755f55917c7%3A0xb1256da18bfa2a01!2sClinica%20Veterinaria%20San%20Martin!5e0!3m2!1ses-419!2sbo!4v1761057733117!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
+
     <div class="info-box">
       <p><strong>Para más información, contáctese a estos números:</strong></p>
       <p>591-6958-4826 - Dennis Morales</p>
@@ -146,15 +167,12 @@ San Martin
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
 <p>&copy; 2025 Clínica Veterinaria San Martin. Todos los derechos reservados.</p>
 </footer>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Fondo dinámico y navbar scroll -->
 <script>
 const fondos = [
   "https://i.pinimg.com/1200x/2c/25/56/2c25563a4b9d95c7d3c31f65365bbab3.jpg",
@@ -168,6 +186,11 @@ window.addEventListener("scroll", () => {
   const nav = document.querySelector(".navbar");
   if(window.scrollY > 60){ nav.classList.add("scrolled"); } 
   else { nav.classList.remove("scrolled"); }
+});
+
+const form = document.getElementById("contactForm");
+form.addEventListener("submit", () => {
+  setTimeout(() => { form.reset(); }, 1500); // limpia el formulario tras enviar
 });
 </script>
 </body>

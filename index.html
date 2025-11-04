@@ -81,22 +81,6 @@
   .nav-link:hover, .nav-link.active {
     color: #fff !important;
   }
-  .btn-contacto {
-    background-color: #2e7d32;
-    border: 2px solid #ffd700;
-    color: #ffd700 !important;
-    font-weight: 700;
-    border-radius: 30px;
-    padding: 8px 20px;
-    margin-left: 12px;
-    transition: all 0.4s ease;
-  }
-  .btn-contacto:hover {
-    background-color: #388e3c;
-    color: #fff !important;
-    box-shadow: 0 0 15px rgba(255,215,0,0.7);
-    transform: scale(1.08);
-  }
 
   /* ====== HEADER ====== */
   header {
@@ -142,17 +126,23 @@
     color: #c8e6c9;
     line-height: 1.8;
   }
-  .btn-services {
+
+  .btn-services, .btn-emergency {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 1.15rem;
-    background-color: #2e7d32;
-    color: #ffd700;
-    border: 2px solid #ffd700;
     border-radius: 40px;
     padding: 14px 36px;
     transition: all 0.4s ease;
     box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .btn-services {
+    background-color: #2e7d32;
+    color: #ffd700;
+    border: 2px solid #ffd700;
     animation: pulse 2.5s infinite;
   }
   .btn-services:hover {
@@ -160,6 +150,20 @@
     transform: scale(1.12);
     box-shadow: 0 12px 30px rgba(255,215,0,0.8);
   }
+
+  /* ====== NUEVO BOTÓN DE EMERGENCIAS ====== */
+  .btn-emergency {
+    background-color: #b71c1c;
+    color: #fff;
+    border: 2px solid #ff6f00;
+    animation: blink 2s infinite;
+  }
+  .btn-emergency:hover {
+    background-color: #d32f2f;
+    transform: scale(1.12);
+    box-shadow: 0 12px 30px rgba(255,0,0,0.8);
+  }
+
   .tagline {
     margin-top: 22px;
     font-size: 1.15rem;
@@ -207,6 +211,10 @@
     0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,215,0,0.4); }
     50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255,215,0,0.9); }
   }
+  @keyframes blink {
+    0%, 100% { box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+    50% { box-shadow: 0 0 30px rgba(255,0,0,1); }
+  }
   @keyframes slideIn {
     from {opacity: 0; transform: translateY(-50px);}
     to {opacity: 1; transform: translateY(0);}
@@ -238,7 +246,7 @@
         <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
         <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
         <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-        <li class="nav-item"><a class="nav-link btn-contacto" href="contacto.html">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
       </ul>
     </div>
   </div>
@@ -250,7 +258,9 @@
     <div class="header-left">
       <h1>Más que una clínica,<br> una familia</h1>
       <p>En <strong>San Martin</strong>, cada latido, cada mirada y cada historia de tus mascotas nos inspira a dar lo mejor. Amor, ciencia y compromiso se unen para garantizar su bienestar.</p>
-      <a href="servicios.html" class="btn-services">Explora nuestros servicios</a>
+      <a href="servicios.html" class="btn-services">Explora nuestros servicios</a><br>
+      <!-- NUEVO BOTÓN -->
+      <a href="contacto.html" class="btn-emergency">🚨 Atención de Emergencias</a>
       <p class="tagline">Cuidado integral · Emergencias 24/7 · Experiencia con corazón</p>
     </div>
     <div class="header-right">
@@ -292,3 +302,4 @@
 </script>
 </body>
 </html>
+S
